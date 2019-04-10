@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import {addUser} from '../store/actions'
 
 class AuthPage extends Component{
     constructor(props) {
@@ -20,7 +21,6 @@ class AuthPage extends Component{
         this.Logining = this.Logining.bind(this);
     }
     handleChangePhoto(event){
-        console.log(event)
         this.setState({photo: event.target.value});
     }
     handleChangeFName(event){
@@ -33,7 +33,12 @@ class AuthPage extends Component{
         this.setState({about: event.target.value});
     }
     Logining(){
-        console.log(this.state)
+        const dispatch = this.props.dispatch;
+
+        dispatch(addUser(this.state))
+        localStorage.setItem('login_token','token')
+        localStorage.setItem('this_user',this.state)
+        //window.location = "/";
     }
     render(){
         return(
@@ -57,7 +62,7 @@ class AuthPage extends Component{
                             <label htmlFor="exampleInputEmail1">About</label>
                             <textarea className="form-control" aria-describedby="emailHelp" placeholder="About" value={this.state.about} onChange={this.handleChangeAbout}/>
                         </div>
-                        <button type="submit" className="btn btn-primary" onClick={this.Logining()}>Submit</button>
+                        <button type="submit" className="btn btn-primary" onClick={this.Logining}>Submit</button>
                     </div>
                 </div>
             </div>

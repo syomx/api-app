@@ -13,16 +13,27 @@ class RouterComp extends Component{
         window.location = "/";
     }
     Logout(){
-        localStorage.setItem('login_token',null)
+        localStorage.setItem('login_token','')
         window.location = "/";
     }
     Check(){
+        console.log('token:')
         console.log(localStorage.getItem('login_token'))
+        console.log('users:')
+        console.log(this.props.users )
     }
     render(){
         return(
             <Router>
-                { localStorage.getItem('login_token') == 'token' && <MainMenu /> }
+
+                <div>
+                    <Link to="/">Main page</Link>
+                    <Link to="/settings">Settings</Link>
+                    <div>auth: {this.props.auth}</div>
+                    <button onClick={() => this.Login()}>Login</button>
+                    <button onClick={() => this.Logout()}>Logout</button>
+                    <button onClick={() => this.Check()}>Check</button>
+                </div>
 
                 <div>
 
@@ -55,7 +66,8 @@ class RouterComp extends Component{
 
 const PutStateToProps = (state) =>{
     return {
-        auth:state.auth
+        auth:state.auth,
+        users:state.users
     }
 }
 
