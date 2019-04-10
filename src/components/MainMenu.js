@@ -3,10 +3,6 @@ import {connect} from 'react-redux'
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 class MainMenu extends Component{
-    Login(){
-        localStorage.setItem('login_token','token')
-        window.location = "/";
-    }
     Logout(){
         localStorage.setItem('login_token','')
         window.location = "/";
@@ -20,13 +16,19 @@ class MainMenu extends Component{
 
     render(){
         return(
-            <div>
-                <Link to="/">Main page</Link>
-                <Link to="/settings">Settings</Link>
-                <div>auth: {this.props.auth}</div>
-                <button onClick={() => this.Login()}>Login</button>
-                <button onClick={() => this.Logout()}>Logout</button>
-                <button onClick={() => this.Check()}>Check</button>
+            <div className="main_nav">
+                <div className="top_menu">
+                    <div className="container">
+                        <div className="item" onClick={() => this.Logout()}>Logout</div>
+                        <div className="item" onClick={() => this.Check()}>Check</div>
+                    </div>
+                </div>
+                <nav className="nav bottom_menu">
+                    <div className="container">
+                        <Link className="nav-link active" to="/">Main page</Link>
+                        <Link className="nav-link" to="/settings">Settings</Link>
+                    </div>
+                </nav>
             </div>
         )
     }

@@ -14,7 +14,7 @@ class RouterComp extends Component{
 
                 {localStorage.getItem('login_token') == 'token' && <MainMenu />}
 
-                <div>
+                <div className="container">
 
                     <Route exact path="/" render={() => (
                         (localStorage.getItem('login_token') == 'token') ? (
@@ -37,6 +37,7 @@ class RouterComp extends Component{
                             <AuthPage/>
                         )
                     )}/>
+
                 </div>
             </Router>
         )
