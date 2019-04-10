@@ -8,23 +8,17 @@ import SettingsPage from './components/SettingsPage'
 import AuthPage from './components/AuthPage';
 
 class RouterComp extends Component{
-    state = {
-        loggedIn: false
-    }
-    getLogin(){
-        this.setState({
-            loggedIn:true
-        })
+    Login(){
+        localStorage.setItem('login_token','token')
+        window.location = "/";
     }
     Logout(){
-        this.setState({
-            loggedIn:false
-        })
+        localStorage.setItem('login_token',null)
+        window.location = "/";
     }
     Check(){
         console.log(localStorage.getItem('login_token'))
     }
-
     render(){
         return(
             <Router>
@@ -32,28 +26,29 @@ class RouterComp extends Component{
                     <Link to="/">Main page</Link>
                     <Link to="/settings">Settings</Link>
                     <div>auth: {this.props.auth}</div>
-                    <button onClick={() => this.getLogin()}>Login</button>
+                    <button onClick={() => this.Login()}>Login</button>
                     <button onClick={() => this.Logout()}>Logout</button>
                     <button onClick={this.Check}>Check</button>
                 </div>
+
                 <div>
 
                     <Route exact path="/" render={() => (
-                        (this.state.loggedIn) ? (
+                        (localStorage.getItem('login_token') == 'token') ? (
                             <MainPage/>
                         ) : (
                             <Redirect to="/login"/>
                         )
                     )}/>
                     <Route exact path="/settings" render={() => (
-                        (this.state.loggedIn) ? (
+                        (localStorage.getItem('login_token') == 'token') ? (
                             <SettingsPage/>
                         ) : (
                             <Redirect to="/login"/>
                         )
                     )}/>
                     <Route exact path="/login" render={() => (
-                        (this.state.loggedIn) ? (
+                        (localStorage.getItem('login_token') == 'token') ? (
                             <Redirect to="/"/>
                         ) : (
                             <AuthPage/>
