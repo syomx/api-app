@@ -46,6 +46,27 @@ $border_color:#dfeef5;
 .main_container{
   background: $main_grey;
   min-height: 100vh;
+  .page__main_header{
+    padding: 0;
+    margin: 50px 0;
+  }
+}
+.pink_btn{
+  background: $pink!important;
+  border:solid 1px $pink!important;
+  cursor: pointer;
+  &:hover{
+    background: #ca3458!important;
+
+  }
+}
+.page_header__block{
+  position: relative;
+  .pink_btn{
+    position: absolute;
+    right: 0;
+    top: 5px;
+  }
 }
 .main_nav{
   height: 140px;
@@ -75,5 +96,14 @@ $border_color:#dfeef5;
       padding: 0;
       margin-right: 20px;
     }
+  }
+}
+.users_block{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .card{
+    width: 47%;
+    margin-bottom: 30px;
   }
 }
