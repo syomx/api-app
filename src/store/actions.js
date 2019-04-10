@@ -1,7 +1,7 @@
 
-export const dataUpdated = (status) => {
+export const logining = (status) => {
     return{
-        type:'DATA_UPDATED',
+        type:'LOGINING',
         payload:status
     }
 }
