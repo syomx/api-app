@@ -9,19 +9,20 @@ import AuthPage from './components/AuthPage';
 
 class RouterComp extends Component{
     state = {
-        loggedIn: localStorage.getItem('login_token')
+        loggedIn: false
     }
     getLogin(){
-        localStorage.setItem('login_token', true)
         this.setState({
             loggedIn:true
         })
     }
     Logout(){
-        localStorage.setItem('login_token', false)
         this.setState({
             loggedIn:false
         })
+    }
+    Check(){
+        console.log(localStorage.getItem('login_token'))
     }
 
     render(){
@@ -31,25 +32,33 @@ class RouterComp extends Component{
                     <Link to="/">Main page</Link>
                     <Link to="/settings">Settings</Link>
                     <div>auth: {this.props.auth}</div>
-                    <button onClick={() => this.getLogin(this.props)}>login</button>
-                    <button onClick={() => this.Logout(this.props)}>Logout</button>
+                    <button onClick={() => this.getLogin()}>Login</button>
+                    <button onClick={() => this.Logout()}>Logout</button>
+                    <button onClick={this.Check}>Check</button>
                 </div>
                 <div>
+
                     <Route exact path="/" render={() => (
-                        this.state.loggedIn ? (
+                        (this.state.loggedIn) ? (
                             <MainPage/>
                         ) : (
                             <Redirect to="/login"/>
                         )
                     )}/>
                     <Route exact path="/settings" render={() => (
-                        this.state.loggedIn ? (
+                        (this.state.loggedIn) ? (
                             <SettingsPage/>
                         ) : (
                             <Redirect to="/login"/>
                         )
                     )}/>
-                    <Route exact path="/login" component={AuthPage} />
+                    <Route exact path="/login" render={() => (
+                        (this.state.loggedIn) ? (
+                            <Redirect to="/"/>
+                        ) : (
+                            <AuthPage/>
+                        )
+                    )}/>
                 </div>
             </Router>
         )
