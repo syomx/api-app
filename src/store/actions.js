@@ -5,3 +5,10 @@ export const logining = (status) => {
         payload:status
     }
 }
+
+export const addUser = (status) => {
+    return{
+        type:'ADD_USER',
+        payload:status
+    }
+}

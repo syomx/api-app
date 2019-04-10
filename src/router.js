@@ -1,11 +1,11 @@
 import React,{Component} from 'react'
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import {connect} from 'react-redux'
-import { logining } from './store/actions';
 
+import MainMenu from './components/MainMenu'
 import MainPage from './components/MainPage'
 import SettingsPage from './components/SettingsPage'
-import AuthPage from './components/AuthPage';
+import AuthPage from './components/AuthPage'
 
 class RouterComp extends Component{
     Login(){
@@ -22,14 +22,7 @@ class RouterComp extends Component{
     render(){
         return(
             <Router>
-                <div>
-                    <Link to="/">Main page</Link>
-                    <Link to="/settings">Settings</Link>
-                    <div>auth: {this.props.auth}</div>
-                    <button onClick={() => this.Login()}>Login</button>
-                    <button onClick={() => this.Logout()}>Logout</button>
-                    <button onClick={this.Check}>Check</button>
-                </div>
+                { localStorage.getItem('login_token') == 'token' && <MainMenu /> }
 
                 <div>
 
