@@ -13,7 +13,9 @@ class MainMenu extends Component{
         console.log('users:')
         console.log(this.props )
     }
-
+    ClearSession(){
+        localStorage.clear()
+    }
     render(){
         return(
             <div className="main_nav">
@@ -21,6 +23,7 @@ class MainMenu extends Component{
                     <div className="container">
                         <div className="item" onClick={() => this.Logout()}>Logout</div>
                         <div className="item" onClick={() => this.Check()}>Check</div>
+                        <div className="item" onClick={() => this.ClearSession()}>Clear session</div>
                     </div>
                 </div>
                 <nav className="nav bottom_menu">

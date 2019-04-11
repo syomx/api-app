@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
-import {addUser} from '../store/actions'
+import {updateUsers} from '../store/actions'
 
 class AuthPage extends Component{
     constructor(props) {
@@ -34,11 +34,18 @@ class AuthPage extends Component{
     }
     Logining(){
         const dispatch = this.props.dispatch;
-
-        dispatch(addUser(this.state))
+        let new_user = [{
+            id:1,
+            photo:this.state.photo,
+            first_name:this.state.first_name,
+            second_name:this.state.second_name,
+            about:this.state.about
+        }];
+        this.props.users.push(new_user);
+        dispatch(updateUsers(new_user))
         localStorage.setItem('login_token','token')
-        localStorage.setItem('this_user',this.state)
-        //window.location = "/";
+        localStorage.setItem('this_user_id',1)
+        localStorage.setItem('users',JSON.stringify(new_user))
     }
     render(){
         return(
@@ -72,7 +79,7 @@ class AuthPage extends Component{
 
 const PutStateToProps = (state) =>{
     return {
-        string:state.string
+        users:state.users
     }
 }
 

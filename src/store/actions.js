@@ -6,9 +6,9 @@ export const logining = (status) => {
     }
 }
 
-export const addUser = (status) => {
+export const updateUsers = (users) => {
     return{
-        type:'ADD_USER',
-        payload:status
+        type:'UPDATE_USER',
+        payload:users
     }
 }

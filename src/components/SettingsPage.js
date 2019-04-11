@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
-
+import UsersList from './UsersList'
 
 class SettingsPage extends Component{
     render(){
@@ -12,19 +12,17 @@ class SettingsPage extends Component{
                 </div>
                 
                 <div className="users_block">
-
-                    <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">Специальный заголовок</h5>
-                            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" className="btn btn-primary">Переход куда-нибудь</a>
-                        </div>
-                    </div>
-
+                    <UsersList users={this.props.users}/>
                 </div>
             </div>
         );
     }
 };
 
-export default SettingsPage;
+const PutStateToProps = (state) =>{
+    return {
+        users:state.users
+    }
+}
+
+export default connect(PutStateToProps)(SettingsPage); 
