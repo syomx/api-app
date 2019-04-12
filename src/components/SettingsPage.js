@@ -44,7 +44,6 @@ class SettingsPage extends Component{
     render(){
         return(
             <div>
-                {this.props.users.length}
                 <AddUser addUser={this.addUser} userToEdit={this.state.userToEdit}/>
                 <div className="page_header__block">
                     <h1 className="page__main_header">All users</h1>

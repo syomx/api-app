@@ -1,6 +1,6 @@
 const initialState = {
     users:[],
-    string:'',
+    api:[],
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -23,8 +23,8 @@ export const rootReducer = (state = initialState, action) => {
             }
         case('UPDATE_USERS'):
             return {...state,users: action.payload};
-        case('STRING'):
-            return {...state,string: action.payload};
+        case('GET_API'):
+            return {...state,api: action.payload};
         default:
             return state
     }
