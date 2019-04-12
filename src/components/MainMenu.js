@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
-
+import ThisUser from './ThisUser'
 class MainMenu extends Component{
     Logout(){
         localStorage.setItem('login_token','')
@@ -26,6 +26,9 @@ class MainMenu extends Component{
                         <div className="item" onClick={() => this.Logout()}>Logout</div>
                         <div className="item" onClick={() => this.Check()}>Check</div>
                         <div className="item" onClick={() => this.ClearSession()}>Clear session</div>
+                        <div style={{float:'right'}}>
+                            <ThisUser users={this.props.users}/>
+                        </div>
                     </div>
                 </div>
                 <nav className="nav bottom_menu">

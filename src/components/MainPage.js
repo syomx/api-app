@@ -1,12 +1,12 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
-
+import ApiList from './ApiList'
 class MainPage extends Component{
     render(){
         return(
             <div>
                 <h1>Main page</h1>
-                {this.props.string}
+                <ApiList apiData = {this.props.api}/>
             </div>
         );
     }
@@ -14,7 +14,7 @@ class MainPage extends Component{
 
 const PutStateToProps = (state) =>{
     return {
-        string:state.string
+        api:state.api
     }
 }
 
