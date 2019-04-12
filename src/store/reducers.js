@@ -10,6 +10,16 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 users: [...state.users, action.payload]
             }
+        case('EDIT_USER'):
+            console.log(action.payload)
+            return { 
+                ...state,
+                users: state.users.map(user => {
+                    if(user.id == action.payload.id) {
+                        return action.payload;
+                    }
+                })
+            }
         case('UPDATE_USERS'):
             return {...state,users: action.payload};
         case('STRING'):

@@ -6,21 +6,16 @@ class AddUser extends Component{
     constructor(props) {
         super(props);
         this.state = {
+            id:null,
             first_name:'',
             fname_err:false,
             second_name:'',
             sname_err:false,
-            photo:'',
             about:''
         };
-    
-        this.handleChangePhoto = this.handleChangePhoto.bind(this);
         this.handleChangeFName = this.handleChangeFName.bind(this);
         this.handleChangeSName = this.handleChangeSName.bind(this);
         this.handleChangeAbout = this.handleChangeAbout.bind(this);
-    }
-    handleChangePhoto(event){
-        this.setState({photo: event.target.value});
     }
     handleChangeFName(event){
         this.setState({first_name: event.target.value,fname_err:false});
@@ -33,13 +28,22 @@ class AddUser extends Component{
     }
     submitNewUser(){
         const new_user = {
-            id:'',
-            photo:this.state.photo,
+            id:this.state.id,
             first_name:this.state.first_name,
             second_name:this.state.second_name,
             about:this.state.about
         };
         return new_user;
+    }
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            id:nextProps.userToEdit.id,
+            first_name:nextProps.userToEdit.first_name,
+            fname_err:false,
+            second_name:nextProps.userToEdit.second_name,
+            sname_err:false,
+            about:nextProps.userToEdit.about
+        })
     }
     render(){
         return(
@@ -47,10 +51,6 @@ class AddUser extends Component{
                 <div>
                     <div className="row justify-content-md-center">
                         <div className="col-lg-4">
-                            <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Your photo (url)</label>
-                                <input type="text" className="form-control"  aria-describedby="emailHelp" placeholder="Enter photo url" value={this.state.photo} onChange={this.handleChangePhoto}/>
-                            </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">First name</label>
                                 <input type="text" className="form-control" aria-describedby="emailHelp" placeholder="Enter first name" value={this.state.first_name} onChange={this.handleChangeFName}/>

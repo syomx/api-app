@@ -12,7 +12,12 @@ export const addUserInStore = (user) => {
         payload:user
     }
 }
-
+export const editUser = (user) => {
+    return{
+        type:'EDIT_USER',
+        payload:user
+    }
+}
 export const updateUsers = (users) => {
     return{
         type:'UPDATE_USERS',
