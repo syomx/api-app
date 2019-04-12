@@ -8,9 +8,6 @@ import devToolsEnhancer from 'remote-redux-devtools';
 import {Provider} from 'react-redux'
 import {rootReducer} from './store/reducers'
 
-
-//const store = createStore(rootReducer);
-
 const store = createStore(rootReducer, devToolsEnhancer());
 
 render (<Provider store={store}><App/></Provider>, document.getElementById('root'))

@@ -48,7 +48,6 @@ class RouterComp extends Component{
 
 const PutStateToProps = (state) =>{
     return {
-        auth:state.auth,
         users:state.users
     }
 }

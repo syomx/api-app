@@ -2,19 +2,18 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import UsersList from './UsersList'
 import AddUser from './AddUser';
-import {updateUsers} from '../store/actions'
+import {addUserInStore} from '../store/actions'
 
 class SettingsPage extends Component{
-    componentWillReceiveProps(nextProps){
-        console.log(nextProps)
+    constructor(props) {
+        super(props);
+        this.state = {
+            users:this.props.users
+        };
     }
     addUser = (new_user) => {
         const dispatch = this.props.dispatch;
-        this.props.users.push(new_user);
-        dispatch(updateUsers(this.props.users))
-
-        //TODO без этого костыля не обновляеться компонент после обновления store HELP
-        this.setState({})
+        dispatch(addUserInStore(new_user))
     }
     render(){
         return(

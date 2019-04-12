@@ -1,8 +1,15 @@
 
-export const logining = (status) => {
+export const updateString = (string) => {
     return{
-        type:'LOGINING',
-        payload:status
+        type:'STRING',
+        payload:string
+    }
+}
+
+export const addUserInStore = (user) => {
+    return{
+        type:'UPDATE_USER',
+        payload:user
     }
 }
 
