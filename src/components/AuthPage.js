@@ -41,11 +41,10 @@ class AuthPage extends Component{
             second_name:this.state.second_name,
             about:this.state.about
         }];
-        this.props.users.push(new_user);
         dispatch(updateUsers(new_user))
         localStorage.setItem('login_token','token')
         localStorage.setItem('this_user_id',1)
-        localStorage.setItem('users',JSON.stringify(new_user))
+        this.forceUpdate()
     }
     render(){
         return(

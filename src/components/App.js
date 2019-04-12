@@ -12,18 +12,29 @@ class App extends Component {
       localStorage.removeItem("users")
     }
   }
-  componentWillUpdate(){
-    if(this.props.users.length !== 0 ){
-      localStorage.setItem('users',JSON.stringify(this.props.users))
-    }
-    
+  componentWillUpdate(nextProps){
+    localStorage.setItem('users',JSON.stringify(nextProps.users))
+  }
+
+  AddUser = () => {
+    const dispatch = this.props.dispatch;
+    let new_user = {
+        id:this.props.users.length+1,
+        photo:'aa',
+        first_name:'aa',
+        second_name:'aa',
+        about:'aa'
+    };
+    this.props.users.push(new_user)
+
+    dispatch(updateUsers(this.props.users))
+    console.log(this.props.users)
   }
   render(){
     return (
       <div className="main_container">
         <RouterComp />
       </div>
-        
     )
   }
 }

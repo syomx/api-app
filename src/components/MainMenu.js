@@ -11,7 +11,9 @@ class MainMenu extends Component{
         console.log('token:')
         console.log(localStorage.getItem('login_token'))
         console.log('users:')
-        console.log(this.props )
+        console.log(this.props)
+        console.log('session:')
+        console.log(localStorage.getItem('users'))
     }
     ClearSession(){
         localStorage.clear()
@@ -40,7 +42,7 @@ class MainMenu extends Component{
 const PutStateToProps = (state) =>{
     return {
         auth:state.auth,
-        users:state.users
+        users:state.users,
     }
 }
 
