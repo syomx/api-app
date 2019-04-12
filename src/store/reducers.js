@@ -18,6 +18,7 @@ export const rootReducer = (state = initialState, action) => {
                     if(user.id == action.payload.id) {
                         return action.payload;
                     }
+                    return user;
                 })
             }
         case('UPDATE_USERS'):

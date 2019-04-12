@@ -8,9 +8,6 @@ import SettingsPage from './components/SettingsPage'
 import AuthPage from './components/AuthPage'
 
 class RouterComp extends Component{
-    componentWillReceiveProps(){
-        console.log('update')
-    }
     render(){
         return(
             <Router>
