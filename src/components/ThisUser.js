@@ -1,5 +1,7 @@
 import React,{Component} from 'react'
 import HeaderUsersList from './HeaderUsersList'
+import {connect} from 'react-redux'
+import {updateThisUserId} from '../store/actions'
 
 class ThisUser extends Component{
     constructor(props){
@@ -10,11 +12,14 @@ class ThisUser extends Component{
         }
     }
     changeUser = (id) =>{
+        const dispatch = this.props.dispatch;
+
         localStorage.setItem('this_user_id',id)
         this.setState({
             thisUser:this.props.users[id].first_name,
             showList:''
         })
+        dispatch(updateThisUserId(id))
     }
     showUsersList(){
         if(this.state.showList == ''){
@@ -61,4 +66,11 @@ class ThisUser extends Component{
     }
 }
 
-export default ThisUser;
+const PutStateToProps = (state) =>{
+    return {
+        users:state.users,
+        thisUserId:state.thisUserId,
+    }
+}
+
+export default connect(PutStateToProps)(ThisUser); 

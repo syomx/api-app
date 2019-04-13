@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import ThisUser from './ThisUser'
+
 class MainMenu extends Component{
     Logout(){
         localStorage.setItem('login_token','')
@@ -44,8 +45,8 @@ class MainMenu extends Component{
 
 const PutStateToProps = (state) =>{
     return {
-        auth:state.auth,
         users:state.users,
+        thisUserId:state.thisUserId,
         api:state.api
     }
 }

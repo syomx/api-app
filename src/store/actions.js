@@ -18,6 +18,12 @@ export const editUser = (user) => {
         payload:user
     }
 }
+export const updateThisUserId = (id) => {
+    return{
+        type:'THIS_USER_ID',
+        payload:id
+    }
+}
 export const updateUsers = (users) => {
     return{
         type:'UPDATE_USERS',

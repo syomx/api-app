@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
-import {updateUsers} from '../store/actions'
+import {updateUsers,updateThisUserId} from '../store/actions'
 
 class AuthPage extends Component{
     constructor(props) {
@@ -41,6 +41,7 @@ class AuthPage extends Component{
             about:this.state.about
         }];
         dispatch(updateUsers(new_user))
+        dispatch(updateThisUserId(0))
         localStorage.setItem('login_token','token')
         localStorage.setItem('this_user_id',0)
     }

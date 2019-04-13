@@ -1,4 +1,5 @@
 const initialState = {
+    thisUserId:'',
     users:[],
     api:[],
 };
@@ -24,6 +25,8 @@ export const rootReducer = (state = initialState, action) => {
             return {...state,users: action.payload};
         case('GET_API'):
             return {...state,api: action.payload};
+        case('THIS_USER_ID'):
+            return {...state,thisUserId: action.payload};
         default:
             return state
     }
