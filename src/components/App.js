@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import RouterComp from '../router'
 import {connect} from 'react-redux'
-import {updateUsers} from '../store/actions'
+import {updateUsers,getApi} from '../store/actions'
+import {apiData} from '../data/api'
 
 class App extends Component {
   componentDidMount(){
     const users_in_session = localStorage.getItem('users');
+    const dispatch = this.props.dispatch;
     if(users_in_session !== null){
-      const dispatch = this.props.dispatch;
       dispatch(updateUsers(JSON.parse(users_in_session)))
       localStorage.removeItem("users")
     }
+    dispatch(getApi(apiData))
   }
   componentWillUpdate(nextProps){
     localStorage.setItem('users',JSON.stringify(nextProps.users))

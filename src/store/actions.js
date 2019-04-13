@@ -24,3 +24,9 @@ export const updateUsers = (users) => {
         payload:users
     }
 }
+export const getApi = (api) => {
+    return{
+        type:'GET_API',
+        payload:api
+    }
+}
