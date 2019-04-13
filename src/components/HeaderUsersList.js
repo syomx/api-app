@@ -16,7 +16,7 @@ class HeaderUsersList extends Component{
             )
         })
         return(
-            <div className="top_users__list">
+            <div className={this.props.showList + " top_users__list"}>
                 {userElems}  
             </div>
         )

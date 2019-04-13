@@ -219,6 +219,9 @@ $border_color:#dfeef5;
   z-index: 10;
   box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.07);
   padding: 5px 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms;
   .user_item{
     display: flex;
     color: #000;
@@ -237,4 +240,8 @@ $border_color:#dfeef5;
       border-bottom: none;
     }
   }
+}
+._showUsersList{
+  opacity: 1;
+  pointer-events: all;
 }
