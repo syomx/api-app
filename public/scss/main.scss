@@ -183,8 +183,12 @@ $border_color:#dfeef5;
 }
 .this_user__block{
   cursor: pointer;
-  display: flex;
   position: relative;
+  min-width: 300px;
+  .this_user_cont{
+    float:right;
+    display: flex;
+  }
   .user_ava__block{
     width: 40px;
     height: 40px;

@@ -8,25 +8,40 @@ class ThisUser extends Component{
             thisUser:''
         }
     }
-    changeUser(id){
-        console.log(id)
+    changeUser = (id) =>{
+        localStorage.setItem('this_user_id',id)
+        this.setState({
+            thisUser:this.props.users[id].first_name
+        })
+    }
+    componentDidMount(){
+        const thisUserId = localStorage.getItem('this_user_id');
+        if(this.props.users.length !== 0){
+            this.setState({
+                thisUser:this.props.users[thisUserId].first_name
+            })
+        }
     }
     componentWillReceiveProps(nextProps){
         const thisUserId = localStorage.getItem('this_user_id');
-        this.setState({
-            thisUser:nextProps.users[thisUserId].first_name
-        })
+        if(nextProps.users.length !== 0){
+            this.setState({
+                thisUser:nextProps.users[thisUserId].first_name
+            })
+        }
     }
     render(){
         return(
             <div className="this_user__block">
-                <div className="user_ava__block">
-                    <img src="https://jurnalu.ru/templates/adaptive/dleimages/noavatar.png" className="user_ava"/>
+                <div className="this_user_cont">
+                    <div className="user_ava__block">
+                        <img src="https://jurnalu.ru/templates/adaptive/dleimages/noavatar.png" className="user_ava"/>
+                    </div>
+                    <div className="user_name">
+                        {this.state.thisUser}
+                    </div>
+                    <div className="burger_ico"></div>
                 </div>
-                <div className="user_name">
-                    {this.state.thisUser}
-                </div>
-                <div className="burger_ico"></div>
                 <HeaderUsersList users={this.props.users} changeUser={this.changeUser}/>
             </div>
         )

@@ -13,8 +13,7 @@ class AuthPage extends Component{
             photo:'',
             about:''
         };
-    
-        this.handleChangePhoto = this.handleChangePhoto.bind(this);
+
         this.handleChangeFName = this.handleChangeFName.bind(this);
         this.handleChangeSName = this.handleChangeSName.bind(this);
         this.handleChangeAbout = this.handleChangeAbout.bind(this);
@@ -44,7 +43,6 @@ class AuthPage extends Component{
         dispatch(updateUsers(new_user))
         localStorage.setItem('login_token','token')
         localStorage.setItem('this_user_id',0)
-        this.forceUpdate()
     }
     render(){
         return(
@@ -52,10 +50,6 @@ class AuthPage extends Component{
                 <h1>Auth page</h1>
                 <div className="row justify-content-md-center">
                     <div className="col-lg-4">
-                        <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">Your photo (url)</label>
-                            <input type="text" className="form-control"  aria-describedby="emailHelp" placeholder="Enter photo url" value={this.state.photo} onChange={this.handleChangePhoto}/>
-                        </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputEmail1">First name</label>
                             <input type="text" className="form-control" aria-describedby="emailHelp" placeholder="Enter first name" value={this.state.first_name} onChange={this.handleChangeFName}/>
