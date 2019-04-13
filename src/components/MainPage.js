@@ -3,7 +3,13 @@ import {connect} from 'react-redux'
 import ApiList from './ApiList'
 class MainPage extends Component{
     componentWillReceiveProps(nextProps){
-        console.log(nextProps)
+        if(this.props.thisUserId !== nextProps.thisUserId){
+            function compareRandom(a, b) {
+                return Math.random() - 0.5;
+            }
+              
+            nextProps.api.sort(compareRandom);
+        }
     }
     render(){
         return(
