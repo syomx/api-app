@@ -4,8 +4,11 @@ import ApiList from './ApiList'
 class MainPage extends Component{
     render(){
         return(
-            <div>
-                <h1>Main page</h1>
+            <div className="container">
+                <div className="page_header__block">
+                    <h1 className="page__main_header">Main page</h1>
+                </div>
+                
                 <ApiList apiData = {this.props.api}/>
             </div>
         );

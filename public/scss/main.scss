@@ -100,11 +100,36 @@ $border_color:#dfeef5;
 }
 .users_block{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   .card{
-    width: 49%;
+    margin-right: 2%;
+    width: 32%;
     margin-bottom: 30px;
+    .card-title{
+      text-align: center;
+    }
+    .card-text{
+      text-align: center;
+
+    }
+    .user_ava__block{
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 30px;
+      img{
+        width: 100%;
+      }
+    }
+    .btn{
+      width: 70px;
+      margin: 10px auto;
+    }
+    &:nth-child(3n){
+      margin-right: 0;
+    }
   }
 }
 .add_user__window{

@@ -7,9 +7,12 @@ class ApiList extends Component{
             return(
                 <div className="card" key={i}>
                     <div className="card-body">
+                        <div className="user_ava__block">
+                            <img src={api.logo} className="user_ava"/>
+                        </div>
                         <h5 className="card-title">{api.service}</h5>
-                        <div>key:{api.apiKey}</div>
-                        <p className="card-text">{api.description}</p>
+                        {/* <div>key:{api.apiKey}</div> */}
+                        <div className="card-text">{api.description}</div>
                     </div>
                     <div className="editUser btn btn-primary">more</div>
                 </div>
