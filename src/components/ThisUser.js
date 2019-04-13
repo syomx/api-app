@@ -5,13 +5,16 @@ class ThisUser extends Component{
     constructor(props){
         super(props);
         this.state = {
-            thisUset:''
+            thisUser:''
         }
+    }
+    changeUser(id){
+        console.log(id)
     }
     componentWillReceiveProps(nextProps){
         const thisUserId = localStorage.getItem('this_user_id');
         this.setState({
-            thisUset:nextProps.users[thisUserId].first_name
+            thisUser:nextProps.users[thisUserId].first_name
         })
     }
     render(){
@@ -21,8 +24,10 @@ class ThisUser extends Component{
                     <img src="https://jurnalu.ru/templates/adaptive/dleimages/noavatar.png" className="user_ava"/>
                 </div>
                 <div className="user_name">
-                    {this.state.thisUset}
+                    {this.state.thisUser}
                 </div>
+                <div className="burger_ico"></div>
+                <HeaderUsersList users={this.props.users} changeUser={this.changeUser}/>
             </div>
         )
     }
