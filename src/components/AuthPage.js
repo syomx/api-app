@@ -43,7 +43,7 @@ class AuthPage extends Component{
         }];
         dispatch(updateUsers(new_user))
         localStorage.setItem('login_token','token')
-        localStorage.setItem('this_user_id',1)
+        localStorage.setItem('this_user_id',0)
         this.forceUpdate()
     }
     render(){
