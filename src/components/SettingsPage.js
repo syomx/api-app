@@ -17,7 +17,7 @@ class SettingsPage extends Component{
             }
         };
     }
-    addUser = (new_user) => {
+    updateUsersStore = (new_user) => {
         const dispatch = this.props.dispatch;
         if(new_user.id == undefined){
             new_user.id = this.props.users.length+1;
@@ -44,8 +44,7 @@ class SettingsPage extends Component{
     render(){
         return(
             <div>
-                {this.props.users.length}
-                <AddUser addUser={this.addUser} userToEdit={this.state.userToEdit}/>
+                <AddUser addUser={this.updateUsersStore} userToEdit={this.state.userToEdit}/>
                 <div className="page_header__block">
                     <h1 className="page__main_header">All users</h1>
                     <div className="btn btn-primary pink_btn" onClick={() => this.addNewUser()}>+ Add</div>

@@ -11,7 +11,6 @@ export const rootReducer = (state = initialState, action) => {
                 users: [...state.users, action.payload]
             }
         case('EDIT_USER'):
-            console.log(action.payload)
             return { 
                 ...state,
                 users: state.users.map(user => {
