@@ -10,7 +10,7 @@ class HeaderUsersList extends Component{
                         <img src="https://jurnalu.ru/templates/adaptive/dleimages/noavatar.png" className="user_ava"/>
                     </div>
                     <div>
-                        {user.first_name}
+                        {user.first_name + ' ' + user.second_name }
                     </div>
                 </div>
             )
