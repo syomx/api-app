@@ -11,7 +11,8 @@ class AddUser extends Component{
             fname_err:false,
             second_name:'',
             sname_err:false,
-            about:''
+            about:'',
+            btnText:'Add user'
         };
         this.handleChangeFName = this.handleChangeFName.bind(this);
         this.handleChangeSName = this.handleChangeSName.bind(this);
@@ -47,24 +48,23 @@ class AddUser extends Component{
     }
     render(){
         return(
-            <div className="add_user__window">
+            <div className="add_user_form">
                 <div>
-                    <div className="row justify-content-md-center">
-                        <div className="col-lg-4">
-                            <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">First name</label>
-                                <input type="text" className="form-control" aria-describedby="emailHelp" placeholder="Enter first name" value={this.state.first_name} onChange={this.handleChangeFName}/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Second name</label>
-                                <input type="text" className="form-control" aria-describedby="emailHelp" placeholder="Enter second name" value={this.state.second_name} onChange={this.handleChangeSName}/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">About</label>
-                                <textarea className="form-control" aria-describedby="emailHelp" placeholder="About" value={this.state.about} onChange={this.handleChangeAbout}/>
-                            </div>
-                            <button type="submit" className="btn btn-primary" onClick={()=>this.props.addUser(this.submitNewUser())}>Submit</button>
+                    <div style={{width:'100%'}}>
+                        <div className="close_form__btn" onClick={this.props.closeForm}>&times;</div>
+                        <div className="form-group">
+                            <label htmlFor="exampleInputEmail1">First name</label>
+                            <input type="text" className="form-control" aria-describedby="emailHelp" placeholder="Enter first name" value={this.state.first_name} onChange={this.handleChangeFName}/>
                         </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleInputEmail1">Second name</label>
+                            <input type="text" className="form-control" aria-describedby="emailHelp" placeholder="Enter second name" value={this.state.second_name} onChange={this.handleChangeSName}/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleInputEmail1">About</label>
+                            <textarea className="form-control" aria-describedby="emailHelp" placeholder="About" value={this.state.about} onChange={this.handleChangeAbout}/>
+                        </div>
+                        <button type="submit" className="btn btn-primary" onClick={()=>this.props.addUser(this.submitNewUser())}>{this.props.editBtnText}</button>
                     </div>
                 </div>
             </div>

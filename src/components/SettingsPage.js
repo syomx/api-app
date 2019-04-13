@@ -8,7 +8,9 @@ class SettingsPage extends Component{
     constructor(props) {
         super(props);
         this.state = {
+            showForm:'',
             users:this.props.users,
+            editBtnText:'Add user',
             userToEdit:{
                 id:undefined,
                 first_name:'',
@@ -19,6 +21,9 @@ class SettingsPage extends Component{
     }
     updateUsersStore = (new_user) => {
         const dispatch = this.props.dispatch;
+        this.setState({
+            showForm:''
+        })
         if(new_user.id == undefined){
             new_user.id = this.props.users.length+1;
             dispatch(addUserInStore(new_user))
@@ -28,6 +33,8 @@ class SettingsPage extends Component{
     }
     addNewUser(){
         this.setState({
+            showForm:'_show_form',
+            editBtnText:'Add user',
             userToEdit:{
                 id:undefined,
                 first_name:'',
@@ -38,18 +45,29 @@ class SettingsPage extends Component{
     }
     userToEdit = (user) => {
         this.setState({
+            editBtnText:'Edit user',
+            showForm:'_show_form',
             userToEdit:user
+        })
+    }
+    closeForm(){
+        this.setState({
+            showForm:''
         })
     }
     render(){
         return(
             <div>
-                <AddUser addUser={this.updateUsersStore} userToEdit={this.state.userToEdit}/>
-                <div className="page_header__block">
-                    <h1 className="page__main_header">All users</h1>
-                    <div className="btn btn-primary pink_btn" onClick={() => this.addNewUser()}>+ Add</div>
+                <div className={this.state.showForm + " add_user__window"}>
+                    <AddUser addUser={this.updateUsersStore} userToEdit={this.state.userToEdit} editBtnText={this.state.editBtnText} closeForm={() => this.closeForm()}/>
                 </div>
-                <UsersList users={this.props.users} userToEdit={this.userToEdit}/>
+                <div className="container">
+                    <div className="page_header__block">
+                        <h1 className="page__main_header">All users</h1>
+                        <div className="btn btn-primary pink_btn" onClick={() => this.addNewUser()}>+ Add</div>
+                    </div>
+                    <UsersList users={this.props.users} userToEdit={this.userToEdit}/>
+                </div>
             </div>
         );
     }
