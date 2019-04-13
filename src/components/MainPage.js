@@ -2,6 +2,9 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import ApiList from './ApiList'
 class MainPage extends Component{
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps)
+    }
     render(){
         return(
             <div className="container">
@@ -17,7 +20,8 @@ class MainPage extends Component{
 
 const PutStateToProps = (state) =>{
     return {
-        api:state.api
+        api:state.api,
+        thisUserId:state.thisUserId
     }
 }
 
