@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 class ApiList extends Component{
 
@@ -14,7 +15,7 @@ class ApiList extends Component{
                         {/* <div>key:{api.apiKey}</div> */}
                         <div className="card-text">{api.description}</div>
                     </div>
-                    <a href={"/api/" + i} className="editUser btn btn-primary">more</a>
+                    <Link className="editUser btn btn-primary" to={"/api/" + i}>more</Link>
                 </div>
             )
         })

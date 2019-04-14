@@ -11,11 +11,16 @@ class ApiDitailPage extends Component{
             description:''
         }
     }
+    componentDidMount(){
+        const thisApiId = +this.props.linkParams.match.params.id;
+        this.setState(this.props.api[thisApiId])
+    }
     componentWillReceiveProps(nextProps){
         const thisApiId = +nextProps.linkParams.match.params.id;
-        console.log(thisApiId)
         this.setState(nextProps.api[thisApiId])
-        //this.setState(nextProps.linkParams.match.params.id)
+        if(nextProps.thisUserId !== this.props.thisUserId){
+            window.location = '/';
+        }
     }
     render(){
         return(
@@ -38,11 +43,11 @@ class ApiDitailPage extends Component{
         )
     };
 }
-// export default ApiDitailPage;
 
 const PutStateToProps = (state) =>{
     return {
-        api:state.api
+        api:state.api,
+        thisUserId:state.thisUserId
     }
 }
 

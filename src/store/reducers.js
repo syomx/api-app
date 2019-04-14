@@ -1,5 +1,5 @@
 const initialState = {
-    thisUserId:'',
+    thisUserId:0,
     users:[],
     api:[],
 };

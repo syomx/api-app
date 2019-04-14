@@ -3,7 +3,7 @@ export const apiData = [
         logo:'https://i.pinimg.com/originals/de/1c/91/de1c91788be0d791135736995109272a.png',
         service:'Youtube',
         apiKey:'123',
-        description:'lorem ipsum asd as das d'
+        description:'Let users watch, find, and manage YouTube content'
     },
     {
         logo:'https://png.pngtree.com/element_our/md/20180301/md_5a98273e2a951.png',
