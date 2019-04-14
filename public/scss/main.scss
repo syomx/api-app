@@ -131,6 +131,18 @@ $border_color:#dfeef5;
       margin-right: 0;
     }
   }
+  @media (max-width: 992px){
+    justify-content: space-between;
+    .card{
+      width: 49%;
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 600px){
+    .card{
+      width: 100%;
+    }
+  }
 }
 .add_user__window{
   position: fixed;
@@ -171,6 +183,9 @@ $border_color:#dfeef5;
       margin: 40px auto 0;   
       float: none;
       display: block;
+    }
+    @media (max-width: 400px){
+      width: 100%;
     }
   }
 }

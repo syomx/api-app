@@ -15,7 +15,7 @@ class MainPage extends Component{
         return(
             <div className="container">
                 <div className="page_header__block">
-                    <h1 className="page__main_header">Main page</h1>
+                    <h1 className="page__main_header">Api list</h1>
                 </div>
                 
                 <ApiList apiData = {this.props.api}/>

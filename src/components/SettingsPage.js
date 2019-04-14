@@ -63,7 +63,7 @@ class SettingsPage extends Component{
                 </div>
                 <div className="container">
                     <div className="page_header__block">
-                        <h1 className="page__main_header">All users</h1>
+                        <h1 className="page__main_header">Users</h1>
                         <div className="btn btn-primary pink_btn" onClick={() => this.addNewUser()}>+ Add</div>
                     </div>
                     <UsersList users={this.props.users} userToEdit={this.userToEdit}/>
