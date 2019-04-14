@@ -4,16 +4,16 @@ import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom
 import ThisUser from './ThisUser'
 
 class MainMenu extends Component{
-    ClearSession(){
-        localStorage.clear()
-    }
+    // ClearSession(){
+    //     localStorage.clear()
+    // }
     render(){
         return(
             <div className="main_nav">
                 <div className="top_menu">
                     <div className="container">
                         <Link className="app_logo" to="/">React app</Link>
-                        <div className="item" onClick={() => this.ClearSession()}>Clear session</div>
+                        {/* <div className="item" onClick={() => this.ClearSession()}>Clear session</div> */}
                         <div style={{float:'right'}}>
                             <ThisUser users={this.props.users}/>
                         </div>
