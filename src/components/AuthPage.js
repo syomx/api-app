@@ -47,24 +47,23 @@ class AuthPage extends Component{
     }
     render(){
         return(
-            <div>
-                <h1>Auth page</h1>
-                <div className="row justify-content-md-center">
-                    <div className="col-lg-4">
-                        <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">First name</label>
-                            <input type="text" className="form-control" aria-describedby="emailHelp" placeholder="Enter first name" value={this.state.first_name} onChange={this.handleChangeFName}/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">Second name</label>
-                            <input type="text" className="form-control" aria-describedby="emailHelp" placeholder="Enter second name" value={this.state.second_name} onChange={this.handleChangeSName}/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">About</label>
-                            <textarea className="form-control" aria-describedby="emailHelp" placeholder="About" value={this.state.about} onChange={this.handleChangeAbout}/>
-                        </div>
-                        <button type="submit" className="btn btn-primary" onClick={this.Logining}>Submit</button>
+            <div className="auth_page">
+                <div className="dark"></div>
+                <div className="auth_form">
+                    <div className="form_text">React app</div>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">First name</label>
+                        <input type="text" className="form-control" aria-describedby="emailHelp" placeholder="Enter first name" value={this.state.first_name} onChange={this.handleChangeFName}/>
                     </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Second name</label>
+                        <input type="text" className="form-control" aria-describedby="emailHelp" placeholder="Enter second name" value={this.state.second_name} onChange={this.handleChangeSName}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">About</label>
+                        <textarea className="form-control" aria-describedby="emailHelp" placeholder="About" value={this.state.about} onChange={this.handleChangeAbout}/>
+                    </div>
+                    <button type="submit" className="btn btn-primary" onClick={this.Logining}>Signup</button>
                 </div>
             </div>
         );

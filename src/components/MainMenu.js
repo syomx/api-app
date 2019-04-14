@@ -12,6 +12,7 @@ class MainMenu extends Component{
             <div className="main_nav">
                 <div className="top_menu">
                     <div className="container">
+                        <Link className="app_logo" to="/">React app</Link>
                         <div className="item" onClick={() => this.ClearSession()}>Clear session</div>
                         <div style={{float:'right'}}>
                             <ThisUser users={this.props.users}/>
@@ -20,7 +21,7 @@ class MainMenu extends Component{
                 </div>
                 <nav className="nav bottom_menu">
                     <div className="container">
-                        <Link className="nav-link active" to="/">Api's</Link>
+                        <Link className="nav-link" to="/">Api's</Link>
                         <Link className="nav-link" to="/settings">Users</Link>
                     </div>
                 </nav>

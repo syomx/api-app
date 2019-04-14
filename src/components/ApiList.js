@@ -14,7 +14,7 @@ class ApiList extends Component{
                         {/* <div>key:{api.apiKey}</div> */}
                         <div className="card-text">{api.description}</div>
                     </div>
-                    <div className="editUser btn btn-primary">more</div>
+                    <a href={"/api/" + i} className="editUser btn btn-primary">more</a>
                 </div>
             )
         })

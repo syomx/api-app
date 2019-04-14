@@ -6,10 +6,13 @@ import MainMenu from './components/MainMenu'
 import MainPage from './components/MainPage'
 import SettingsPage from './components/SettingsPage'
 import AuthPage from './components/AuthPage'
+import ApiDitailPage from './components/ApiDitailPage'
 
 class RouterComp extends Component{
     render(){
+        const comp = <ApiDitailPage/>;
         return(
+            
             <Router>
                 {localStorage.getItem('login_token') == 'token' && <MainMenu />}
                     <Route exact path="/" render={() => (
@@ -33,15 +36,16 @@ class RouterComp extends Component{
                             <AuthPage/>
                         )
                     )}/>
+                    <Route exact path="/api/:id" render={(id) => (
+                        (localStorage.getItem('login_token') == 'token') ? (
+                            <ApiDitailPage linkParams={id}/>
+                        ) : (
+                            <Redirect to="/login"/>
+                        )
+                    )}/>
             </Router>
         )
     };
 }
 
-const PutStateToProps = (state) =>{
-    return {
-        users:state.users
-    }
-}
-
-export default connect(PutStateToProps)(RouterComp); 
+export default RouterComp;

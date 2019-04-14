@@ -76,6 +76,15 @@ $border_color:#dfeef5;
     line-height: 70px;
     display: flex;
     color:#fff;
+    .app_logo{
+      background: url(https://cdn4.iconfinder.com/data/icons/logos-3/426/react_js-512.png)left center no-repeat;
+      background-size: 30px;
+      padding-left: 35px;
+      margin-right: 20px;
+      color:#fff;
+      display: inline-block;
+      text-decoration: none;
+    }
     .item{
       margin-right: 20px;
       display: inline-block;
@@ -259,4 +268,87 @@ $border_color:#dfeef5;
 ._showUsersList{
   opacity: 1;
   pointer-events: all;
+}
+.api_detail__page{
+  min-height: 100vh;
+  overflow: hidden;
+  .page_header__block{
+    .api_logo{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 30px auto;
+      img{
+        width: 100%;
+      }
+    }
+    h1{
+      margin:0;
+      text-align: center;
+    }
+    .desc{
+      font-size: 18px;
+      margin:20px auto;
+      width: 600px;
+      text-align: center;
+      @media (max-width: 600px){
+        width: 100%;
+      }
+    }
+  }
+  .api_demostration_cont{
+    position: relative;
+    h3{
+      text-align: center;
+    }
+  }
+}
+.auth_page{
+  background: url(https://images.unsplash.com/photo-1546111380-cfca9a43dd85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1936&q=80)center center no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  .dark{
+    background: rgba(0, 0, 0, 0.61);
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    position: absolute;
+  }
+  .auth_form{
+    position: absolute;
+    width: 400px;
+    height: 420px;
+    left:50%;
+    top:50%;
+    margin:-210px 0 0 -200px;
+    .btn{
+      margin-top: 15px;
+    }
+    .form_text{
+      color: #fff;
+      font-size: 40px;
+      margin-bottom: 20px;
+      background: url(https://cdn4.iconfinder.com/data/icons/logos-3/426/react_js-512.png)left center no-repeat;
+      background-size: 60px;
+      padding-left: 65px;
+    }
+    .form-group{
+      label{
+        color:#fff;
+      }
+    }
+    @media (max-width: 420px){
+      width: 100%;
+      height: auto;
+      left: 0;
+      top:0;
+      margin: 0;
+      padding: 40px 15px;
+    }
+  }
 }
