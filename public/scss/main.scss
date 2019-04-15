@@ -125,7 +125,8 @@ $border_color:#dfeef5;
     }
     .card-text{
       text-align: center;
-
+      overflow: hidden;
+      max-height: 140px;
     }
     .user_ava__block{
       width: 70px;

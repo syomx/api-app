@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import YoutubeDemo from './apidemo/YoutubeDemo'
 
 class ApiDitailPage extends Component{
     constructor(props){
@@ -37,6 +38,7 @@ class ApiDitailPage extends Component{
                     </div>
                     <div className="api_demostration_cont">
                         <h3>Api demonstration:</h3>
+                        <YoutubeDemo />
                     </div>
                 </div>
             </div>
