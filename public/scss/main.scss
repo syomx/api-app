@@ -386,4 +386,16 @@ $border_color:#dfeef5;
       margin-right: 0;
     }
   }
+  @media (max-width: 992px){
+    justify-content: space-between;
+    .api_item{
+      width: 49%;
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 600px){
+    .api_item{
+      width: 100%;
+    }
+  }
 }
