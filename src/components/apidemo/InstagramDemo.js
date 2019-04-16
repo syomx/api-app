@@ -1,11 +1,11 @@
 import React,{Component} from 'react'
 import YouTube from "react-youtube";
 
-class YoutubeDemo extends Component {
-    state = { videos: [], loading: true };
+class InstagramDemo extends Component {
+    state = { data: []};
   
     componentDidMount() {
-        let that = this;
+        let self = this;
         let token = "2197499730.d3b5201.290a38fe6fb1405b8324a3f16c6b18bb";
         let user_id = '2197499730';
         let url = "https://api.instagram.com/v1/users/" + user_id + "/media/recent?access_token=" + token;
@@ -18,7 +18,8 @@ class YoutubeDemo extends Component {
             return response.json();
             })
             .then(function(data) {
-            that.setState({ videos: data.items, loading: false });
+                console.log(data)
+                self.setState({ data:data.data });
             })
             .catch(error => {
             console.error(error);
@@ -26,18 +27,26 @@ class YoutubeDemo extends Component {
     }
   
     render() {
-        const { loading, videos } = this.state;
-    
-        if (loading) {
-            return null;
-        }
-    
+        
+        const self = this;
+        const apiElem = this.state.data.map(function(item, i) {
+            return(
+                <div className="api_item">
+                    <div className="main_cont">
+                        <img src={item.images.standard_resolution.url} />
+                    </div>
+                    <div className="title">
+                        {item.caption.text}
+                    </div>
+                </div>
+            )
+        })
         return (
-            <div className="App">
-
+            <div className="api_items_cont">
+                {apiElem}
             </div>
         );
     }
 }
 
-export default YoutubeDemo 
+export default InstagramDemo 
