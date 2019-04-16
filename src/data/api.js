@@ -9,7 +9,7 @@ export const apiData = [
     {
         logo:'https://png.pngtree.com/element_our/md/20180301/md_5a98273e2a951.png',
         service:'Behance',
-        description:'Не получаеться зарегистрировать приложение для получения ключа :('
+        description:'Не получаеться зарегистрировать приложение для получения ключа:('
     },
     {
         logo:'https://charitycatalogue.com/wp-content/uploads/2017/04/Unsplash-At-RollZign-640x427.png',
