@@ -33,7 +33,7 @@ class UnsplashDemo extends Component {
         const self = this;
         const apiElem = this.state.data.map(function(item, i) {
             return(
-                <div className="api_item">
+                <div className="api_item" key={i}>
                     <div className="main_cont">
                         <img src={item.urls.small} />
                     </div>

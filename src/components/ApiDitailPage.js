@@ -1,5 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import YoutubeDemo from './apidemo/YoutubeDemo'
+import InstagramDemo from './apidemo/InstagramDemo'
 import UnsplashDemo from './apidemo/UnsplashDemo'
 
 class ApiDitailPage extends Component{
@@ -9,7 +11,8 @@ class ApiDitailPage extends Component{
             logo:'',
             service:'',
             apiKey:'',
-            description:''
+            description:'',
+            api_comp:''
         }
     }
     componentDidMount(){
@@ -19,11 +22,27 @@ class ApiDitailPage extends Component{
     componentWillReceiveProps(nextProps){
         const thisApiId = +nextProps.linkParams.match.params.id;
         this.setState(nextProps.api[thisApiId])
+        //add needed comp
+        console.log(thisApiId)
+        const serviceName = nextProps.api[thisApiId].service.toLowerCase();
+
         if(nextProps.thisUserId !== this.props.thisUserId){
             window.location = '/';
         }
     }
     render(){
+        function getApiComp(service){
+            switch(service){
+                case('instagram'):
+                    return <InstagramDemo />;
+                case('youtube'):
+                    return <YoutubeDemo />;
+                case('unsplash'):
+                    return <UnsplashDemo />;
+                default:
+                    return '';
+            }
+        }
         return(
             <div className="container">
                 <div className="api_detail__page">
@@ -38,7 +57,9 @@ class ApiDitailPage extends Component{
                     </div>
                     <div className="api_demostration_cont">
                         <h3>Api demonstration:</h3>
-                        <UnsplashDemo />
+
+                        {this.state.api_comp}
+                        {getApiComp(this.state.service.toLocaleLowerCase())}
                     </div>
                 </div>
             </div>
