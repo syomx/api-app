@@ -3,7 +3,7 @@ export const apiData = [
         logo:'https://png.pngtree.com/element_our/md/20180626/md_5b321ca31d522.png',
         service:'Instagram',
         description:`
-                Вывод фотографий, описание, и информации вашего профиля в instagram, необходимо лишь зарегистрировать приложение в http://instagram.com/developer/ и получить Access Token
+                Вывод фотографий, описания, и информации вашего профиля в instagram, необходимо лишь зарегистрировать приложение в http://instagram.com/developer/ и получить Access Token
         `
     },
     {
