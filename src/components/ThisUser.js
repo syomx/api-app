@@ -22,7 +22,7 @@ class ThisUser extends Component{
         dispatch(updateThisUserId(id))
     }
     showUsersList(){
-        if(this.state.showList == ''){
+        if(this.state.showList === ''){
             this.setState({
                 showList:'_showUsersList'
             })

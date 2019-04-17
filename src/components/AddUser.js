@@ -1,6 +1,4 @@
 import React,{Component} from 'react'
-import {connect} from 'react-redux'
-import {updateUsers} from '../store/actions'
 
 class AddUser extends Component{
     constructor(props) {

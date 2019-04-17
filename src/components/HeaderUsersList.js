@@ -11,7 +11,7 @@ class HeaderUsersList extends Component{
             return(
                 <div className="user_item" key={i} onClick={() => self.props.changeUser(i)}>
                     <div className="user_ava__block">
-                        <img src="https://jurnalu.ru/templates/adaptive/dleimages/noavatar.png" className="user_ava"/>
+                        <img src="https://jurnalu.ru/templates/adaptive/dleimages/noavatar.png" className="user_ava" alt=""/>
                     </div>
                     <div>
                         {user.first_name + ' ' + user.second_name }

@@ -24,7 +24,7 @@ class SettingsPage extends Component{
         this.setState({
             showForm:''
         })
-        if(new_user.id == undefined){
+        if(new_user.id === undefined){
             new_user.id = this.props.users.length+1;
             dispatch(addUserInStore(new_user))
         }else{

@@ -22,9 +22,6 @@ class ApiDitailPage extends Component{
     componentWillReceiveProps(nextProps){
         const thisApiId = +nextProps.linkParams.match.params.id;
         this.setState(nextProps.api[thisApiId])
-        //add needed comp
-        console.log(thisApiId)
-        const serviceName = nextProps.api[thisApiId].service.toLowerCase();
 
         if(nextProps.thisUserId !== this.props.thisUserId){
             window.location = '/';

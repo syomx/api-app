@@ -9,7 +9,7 @@ class ApiList extends Component{
                 <div className="card" key={i}>
                     <div className="card-body">
                         <div className="user_ava__block">
-                            <img src={api.logo} className="user_ava"/>
+                            <img src={api.logo} className="user_ava" alt=""/>
                         </div>
                         <h5 className="card-title">{api.service}</h5>
                         {/* <div>key:{api.apiKey}</div> */}

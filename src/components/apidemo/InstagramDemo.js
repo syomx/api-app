@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-import YouTube from "react-youtube";
 
 class InstagramDemo extends Component {
     state = { data: []};
@@ -27,13 +26,11 @@ class InstagramDemo extends Component {
     }
   
     render() {
-        
-        const self = this;
         const apiElem = this.state.data.map(function(item, i) {
             return(
                 <div className="api_item" key={i}>
                     <div className="main_cont">
-                        <img src={item.images.standard_resolution.url} />
+                        <img src={item.images.standard_resolution.url} alt=""/>
                     </div>
                     <div className="title">
                         {item.caption.text}
