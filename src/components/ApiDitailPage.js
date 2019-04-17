@@ -17,12 +17,12 @@ class ApiDitailPage extends Component{
     }
     componentDidMount(){
         const thisApiId = +this.props.linkParams.match.params.id;
-        this.props.api.find(function(api){
+        const apiId = this.props.api.find(function(api){
             if(api.id === thisApiId){
                 return api;
             }
         })
-        this.setState(this.props.api[thisApiId])
+        this.setState(apiId)
     }
     componentWillReceiveProps(nextProps){
         const thisApiId = +nextProps.linkParams.match.params.id;
