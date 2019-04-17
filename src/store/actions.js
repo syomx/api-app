@@ -36,3 +36,44 @@ export const getApi = (api) => {
         payload:api
     }
 }
+
+const requestData = () => {
+    return {type: 'REQUESTED_DATA' }
+};
+  
+const requestDataSuccess = (data,service) => {
+    return {
+        type: 'REQUESTED_DATA_SUCCEEDED',
+        payload:{
+            data: data,
+            service:service
+        }
+    }
+};
+
+export const fetchInstagramData = (dispatch,url) => {
+    dispatch(requestData());
+    return fetch(url)
+            .then(res => res.json())
+            .then(
+                data => dispatch(requestDataSuccess(data.data)),
+        );
+};
+
+export const fetchUnsplashData = (dispatch,url) => {
+    dispatch(requestData());
+    return fetch(url)
+            .then(res => res.json())
+            .then(
+                data => dispatch(requestDataSuccess(data.results)),
+        );
+};
+
+export const fetchYoutubeData = (dispatch,url) => {
+    dispatch(requestData());
+    return fetch(url)
+            .then(res => res.json())
+            .then(
+                data => dispatch(requestDataSuccess(data.data)),
+        );
+};

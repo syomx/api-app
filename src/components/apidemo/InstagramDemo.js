@@ -1,32 +1,20 @@
 import React,{Component} from 'react'
+import {connect} from 'react-redux'
+import {fetchInstagramData} from '../../store/actions'
 
 class InstagramDemo extends Component {
     state = { data: []};
   
     componentDidMount() {
-        let self = this;
-        let token = "2197499730.d3b5201.290a38fe6fb1405b8324a3f16c6b18bb";
-        let user_id = '2197499730';
-        let url = "https://api.instagram.com/v1/users/" + user_id + "/media/recent?access_token=" + token;
-    
-        fetch(url)
-            .then(function(response) {
-            if (response.status >= 400) {
-                throw new Error("Bad response from server");
-            }
-            return response.json();
-            })
-            .then(function(data) {
-                console.log(data)
-                self.setState({ data:data.data });
-            })
-            .catch(error => {
-            console.error(error);
-        });
+        const token = "2197499730.d3b5201.290a38fe6fb1405b8324a3f16c6b18bb";
+        const user_id = '2197499730';
+        const url = "https://api.instagram.com/v1/users/" + user_id + "/media/recent?access_token=" + token;
+        
+        const dispatch = this.props.dispatch;
+        fetchInstagramData(dispatch,url)
     }
-  
     render() {
-        const apiElem = this.state.data.map(function(item, i) {
+        const apiElem = this.props.api_data.map(function(item, i) {
             return(
                 <div className="api_item" key={i}>
                     <div className="main_cont">
@@ -46,4 +34,10 @@ class InstagramDemo extends Component {
     }
 }
 
-export default InstagramDemo 
+const PutStateToProps = (state) =>{
+    return {
+        api_data:state.api_data
+    }
+}
+
+export default connect(PutStateToProps)(InstagramDemo); 

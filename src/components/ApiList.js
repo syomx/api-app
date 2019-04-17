@@ -12,10 +12,9 @@ class ApiList extends Component{
                             <img src={api.logo} className="user_ava" alt=""/>
                         </div>
                         <h5 className="card-title">{api.service}</h5>
-                        {/* <div>key:{api.apiKey}</div> */}
                         <div className="card-text">{api.description}</div>
                     </div>
-                    <Link className="editUser btn btn-primary" to={"/api/" + i}>more</Link>
+                    <Link className="editUser btn btn-primary" to={"/api/" + api.id}>more</Link>
                 </div>
             )
         })

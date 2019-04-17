@@ -17,6 +17,11 @@ class ApiDitailPage extends Component{
     }
     componentDidMount(){
         const thisApiId = +this.props.linkParams.match.params.id;
+        this.props.api.find(function(api){
+            if(api.id === thisApiId){
+                return api;
+            }
+        })
         this.setState(this.props.api[thisApiId])
     }
     componentWillReceiveProps(nextProps){
@@ -45,7 +50,7 @@ class ApiDitailPage extends Component{
                 <div className="api_detail__page">
                     <div className="page_header__block">
                         <div className="api_logo">
-                            <img src={this.state.logo} />
+                            <img src={this.state.logo} alt=""/>
                         </div>
                         <h1 className="page__main_header">{this.state.service}</h1>
                         <div className="desc">

@@ -53,7 +53,7 @@ class ThisUser extends Component{
             <div className="this_user__block">
                 <div className="this_user_cont" onClick={() => this.showUsersList()}>
                     <div className="user_ava__block">
-                        <img src="https://jurnalu.ru/templates/adaptive/dleimages/noavatar.png" className="user_ava"/>
+                        <img src="https://jurnalu.ru/templates/adaptive/dleimages/noavatar.png" className="user_ava" alt=""/>
                     </div>
                     <div className="user_name">
                         {this.state.thisUser}
